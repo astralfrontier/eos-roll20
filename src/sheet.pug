@@ -6,12 +6,13 @@ include standard-elements
   #era-of-silence-sheet
     .container
       include sections/profile
-      include sections/qualities
       .columns
         .column
+          include sections/qualities
           include sections/skills
         .column
           include sections/weapons
+          include sections/traits
 
 //- Pull in datalists for auto completing text fields
 include datalists

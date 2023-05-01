@@ -1,24 +1,22 @@
-//- TODO: skill rollers
+mixin skill_roller(attr, qualities)
+  if qualities.length == 1
+    button.button(type="roll" value=`/roll @{${attr}}d@{quality_${qualities[0].toLowerCase()}}`)
+  else
+    - var qualities_s = qualities.map(q => `${q},@{quality_${qualities[0].toLowerCase()}}`).join('|')
+    button.button(type="roll" value=`/roll @{${attr}}d?{Quality?|${qualities_s}}`)
+
 +section("Skills")
+  - var splitpoint = Math.ceil(skills.length / 2);
   .columns
     .column
-      +numberfield("attr_skill_alchemy", "Alchemy (W)")
-      +numberfield("attr_skill_alertness", "Alertness (S)")
-      +numberfield("attr_skill_athletics", "Athletics (B/G)")
-      +numberfield("attr_skill_beasts", "Beasts (G/S)")
-      +numberfield("attr_skill_drive", "Drive (G)")
-      +numberfield("attr_skill_heal", "Heal (W)")
-      +numberfield("attr_skill_identify", "Identify (W)")
-      +numberfield("attr_skill_interface", "Interface (W)")
-      +numberfield("attr_skill_judge", "Judge (S)")
+      each skill in skills.slice(0, splitpoint)
+        - var label = `${skill.name} (${skill.quality.map(s => s[0]).join('/')})`
+        - var attr = `skill_${skill.name.toLowerCase().replace(' ', '_')}`
+        +numberfield_v(`attr_${attr}`, label)(value="1" min="1" max="5")
+          +skill_roller(attr, skill.quality)
     .column
-      +numberfield("attr_skill_lie", "Lie (S)")
-      +numberfield("attr_skill_persuade", "Persuade (S)")
-      +numberfield("attr_skill_search", "Search (W)")
-      +numberfield("attr_skill_security", "Security (W/G)")
-      +numberfield("attr_skill_stealth", "Stealth (G)")
-      +numberfield("attr_skill_repair", "Repair (W)")
-      +numberfield("attr_skill_resist_mental", "Resist Mental (S)")
-      +numberfield("attr_skill_resist_physical", "Resist Physical (B)")
-      +numberfield("attr_skill_threaten", "Threaten (B/S)")
-      +numberfield("attr_skill_use_magic", "Use Magic (S)")
+      each skill in skills.slice(splitpoint)
+        - var label = `${skill.name} (${skill.quality.map(s => s[0]).join('/')})`
+        - var attr = `skill_${skill.name.toLowerCase().replace(' ', '_')}`
+        +numberfield_v(`attr_${attr}`, label)(value="1" min="1" max="5")
+          +skill_roller(attr, skill.quality)

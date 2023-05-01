@@ -1,1 +1,80 @@
-{}
+{
+  "skills": [
+    {
+      "name": "Alchemy",
+      "quality": ["Wits"]
+    },
+    {
+      "name": "Alertness",
+      "quality": ["Spirit"]
+    },
+    {
+      "name": "Athletics",
+      "quality": ["Brawn", "Grace"]
+    },
+    {
+      "name": "Beasts",
+      "quality": ["Grace", "Spirit"]
+    },
+    {
+      "name": "Drive",
+      "quality": ["Grace"]
+    },
+    {
+      "name": "Heal",
+      "quality": ["Wits"]
+    },
+    {
+      "name": "Identify",
+      "quality": ["Wits"]
+    },
+    {
+      "name": "Interface",
+      "quality": ["Wits"]
+    },
+    {
+      "name": "Judge",
+      "quality": ["Spirit"]
+    },
+    {
+      "name": "Lie",
+      "quality": ["Spirit"]
+    },
+    {
+      "name": "Persuade",
+      "quality": ["Spirit"]
+    },
+    {
+      "name": "Search",
+      "quality": ["Wits"]
+    },
+    {
+      "name": "Security",
+      "quality": ["Wits", "Grace"]
+    },
+    {
+      "name": "Stealth",
+      "quality": ["Grace"]
+    },
+    {
+      "name": "Repair",
+      "quality": ["Wits"]
+    },
+    {
+      "name": "Resist Mental",
+      "quality": ["Spirit"]
+    },
+    {
+      "name": "Resist Physical",
+      "quality": ["Brawn"]
+    },
+    {
+      "name": "Threaten",
+      "quality": ["Brawn", "Spirit"]
+    },
+    {
+      "name": "Use Magic",
+      "quality": ["Spirit"]
+    }
+  ]
+}
