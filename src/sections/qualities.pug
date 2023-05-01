@@ -1,28 +1,29 @@
+//- TODO: rollers for qualities and computed values
 .columns 
   .column.is-narrow
-    +dicefield_v("attr_brawn", "Brawn")
-    +dicefield_v("attr_grace", "Grace")
-    +dicefield_v("attr_wits", "Wits")
-    +dicefield_v("attr_spirit", "Spirit")
+    +dicefield("attr_brawn", "Brawn")
+    +dicefield("attr_grace", "Grace")
+    +dicefield("attr_wits", "Wits")
+    +dicefield("attr_spirit", "Spirit")
   .column
     .columns
       .column
-        +numberfield_v("attr_shooting", "Shooting")
+        +numberfield("attr_shooting", "Shooting")
       .column
-        +numberfield_v("attr_speed", "Speed")
+        +numberfield("attr_speed", "Speed")
       .column
-        +numberfield_v("attr_armor_value", "Armor Value")
+        +numberfield("attr_armor_value", "Armor Value")
     .columns
       .column
-        +numberfield_v("attr_fighting", "Fighting")
+        +numberfield("attr_fighting", "Fighting")
       .column
-        +numberfield_v("attr_toughness", "Toughness")
+        +numberfield("attr_toughness", "Toughness")
       .column
-        +numberfield_v("attr_armor_roll", "Armor Roll")
+        +numberfield("attr_armor_roll", "Armor Roll")
     .columns
       .column
-        +numberfield_v("attr_willpower", "Willpower")
+        +numberfield("attr_willpower", "Willpower")
       .column
-        +numberfield_v("attr_wounds", "Wounds")
+        +numberfield("attr_wounds", "Wounds")
       .column
-        +numberfield_v("attr_exhaustion", "Exhaustion")
+        +numberfield("attr_exhaustion", "Exhaustion")
