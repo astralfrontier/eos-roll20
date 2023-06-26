@@ -59,6 +59,19 @@ function startSkillRoll(
   startRoll(template, finishSkillRoll)
 }
 
+function startWeaponRoll(weapon: string, accuracy: number, shooting: number) {
+  const roll_s = `[[${accuracy}d${shooting}+?{TN|6}]]`
+
+  // TODO: offer to replace one die with Grace
+
+  const template = propsToRollTemplate('check', {
+    name: weapon,
+    roll: roll_s,
+    result: '[[0]]',
+  })
+  startRoll(template, finishSkillRoll)
+}
+
 on('clicked:quality', (event) => {
   const quality: string = event.htmlAttributes['data-quality'] || ''
 
@@ -73,4 +86,23 @@ on('clicked:skill', (event) => {
   getAttrs([attr], (v) => {
     startSkillRoll(skillname, parseInt(v[attr]) || 1, qualities)
   })
+})
+
+on('clicked:repeating_weapons:weapon', (event) => {
+  const attr_prefix = event.sourceAttribute || ''
+  getAttrs(
+    [
+      `${attr_prefix}_name`,
+      `${attr_prefix}_acc`,
+      `${attr_prefix}_ap`,
+      'shooting',
+    ],
+    (v) => {
+      startWeaponRoll(
+        v[`${attr_prefix}_name`],
+        parseInt(v[`${attr_prefix}_acc`]),
+        parseInt(v['shooting']) || 1
+      )
+    }
+  )
 })

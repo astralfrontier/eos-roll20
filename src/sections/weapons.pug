@@ -3,8 +3,17 @@
     //- TODO: have a toggle between edit and display modes
     //- Display modes should pull everything onto a single line
     //- TODO: dice rollers
-    +textfield_v("attr_weapon_name", "Name")
-    +textfield_v("attr_weapon_range", "Range")
-    +textfield_v("attr_weapon_acc", "Acc")
-    +textfield_v("attr_weapon_ap", "AP")
-    +textfield_v("attr_weapon_special", "Special")
+    .columns
+      .column
+        +textfield_v("attr_weapon_name", "Name")
+    .columns
+      .column
+        +numberfield_v("attr_weapon_range", "Range/Reach")
+      .column
+        +numberfield_v("attr_weapon_acc", "Acc")
+          button.button(type="action" name="act_weapon")
+      .column
+        +numberfield_v("attr_weapon_ap", "AP")
+    .columns
+      .column
+        +textfield_v("attr_weapon_special", "Special")
