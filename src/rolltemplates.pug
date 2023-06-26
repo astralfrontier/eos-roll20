@@ -13,3 +13,12 @@ rolltemplate.sheet-rolltemplate-check
     +outcome('{{key}}', '{{value}}')
     != "{{/allprops() name text roll result}}"
     p= "{{text}}"
+  
+rolltemplate.sheet-rolltemplate-announce
+  .sheet-rolltemplate-header
+    h3= "{{name}}"
+  .sheet-rolltemplate-outcome
+    != "{{#allprops() name text}}"
+    +outcome('{{key}}', '{{value}}')
+    != "{{/allprops() name text}}"
+    p= "{{text}}"

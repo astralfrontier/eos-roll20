@@ -2,6 +2,11 @@
   fieldset.repeating_traits
     //- TODO: have a toggle between edit and display modes
     //- Display modes should pull everything onto a single line
-    //- TODO: dice rollers
-    +textfield_v("attr_trait_name", "Name")
-    +textarea("attr_trait_desc", "Description")
+    .columns
+      .column
+        +textfield_v("attr_trait_name", "Name")
+      .column.is-narrow
+        button.button.eos-announce(type="roll" value="&{template:announce} {{name=@{trait_name}}} {{text=@{trait_desc}}}")
+    .columns
+      .column
+        +textarea("attr_trait_desc", "Description")

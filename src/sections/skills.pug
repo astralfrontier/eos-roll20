@@ -1,6 +1,6 @@
 mixin skill_roller(skillname, qualities)
   - var qualities_s = qualities.join('|')
-  button.button(type="action" name="act_skill" data-skillname=skillname data-qualities=qualities_s)
+  button.button.eos-roll(type="action" name="act_skill" data-skillname=skillname data-qualities=qualities_s)
 
 +section("Skills")
   - var splitpoint = Math.ceil(skills.length / 2);

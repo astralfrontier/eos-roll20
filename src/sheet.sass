@@ -7,13 +7,13 @@
 @import "./rolltemplates"
 
 // Bulma font sizes
-$size-1:   4rem
-$size-2:   3.5rem
-$size-3:   3rem
-$size-4:   2.5rem
-$size-5:   2rem
-$size-6:   1.5rem
-$size-7:   1rem
+$size-1: 4rem
+$size-2: 3.5rem
+$size-3: 3rem
+$size-4: 2.5rem
+$size-5: 2rem
+$size-6: 1.5rem
+$size-7: 1rem
 
 #era-of-silence-sheet
   @import "../node_modules/bulma/sass/utilities/_all"
@@ -36,9 +36,29 @@ $size-7:   1rem
   // input[type="number"]
   //   width: 10rem
 
-  button.button[type="action"]
-    background-color: #c2f0c2 !important
+  button.eos-roll
+    background-color: #ff4d4d
 
-  button.button[type="action"]::before
+  button.eos-roll::before
     font-family: "dicefontd6"
+    font-size: $size-4
+    color: white
     content: "f"
+
+  button.eos-announce
+    background-color: #c2f0c2
+
+  button.eos-announce::before
+    font-family: "Pictos"
+    font-size: $size-4
+    content: "w"
+
+  button.eos-lock::before
+    font-family: "Pictos"
+    font-size: $size-4
+    content: "("
+
+  button.eos-unlock::before
+    font-family: "Pictos"
+    font-size: $size-4
+    content: ")"
