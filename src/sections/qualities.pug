@@ -1,11 +1,17 @@
-//- TODO: rollers for qualities and computed values
+mixin quality_roller(quality)
+  button.button(type="action" name="act_quality" data-quality=quality)
+
 +section("Qualities")
   .columns 
     .column.is-narrow
       +dicefield_v("attr_quality_brawn", "Brawn")
+        +quality_roller("Brawn")
       +dicefield_v("attr_quality_grace", "Grace")
+        +quality_roller("Grace")
       +dicefield_v("attr_quality_wits", "Wits")
+        +quality_roller("Wits")
       +dicefield_v("attr_quality_spirit", "Spirit")
+        +quality_roller("Spirit")
     .column
       .columns
         .column

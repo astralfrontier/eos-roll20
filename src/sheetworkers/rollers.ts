@@ -37,7 +37,7 @@ function finishSkillRoll(outcome: StartRollCallbackValues) {
 
 function startSkillRoll(
   skillname: string,
-  skillrank: string,
+  skillrank: number,
   qualities: string[]
 ) {
   let quality_query
@@ -59,12 +59,18 @@ function startSkillRoll(
   startRoll(template, finishSkillRoll)
 }
 
+on('clicked:quality', (event) => {
+  const quality: string = event.htmlAttributes['data-quality'] || ''
+
+  startSkillRoll(quality, 1, [quality])
+})
+
 on('clicked:skill', (event) => {
   const skillname: string = event.htmlAttributes['data-skillname'] || ''
   const attr = attrname('skill', skillname)
   const qualities: string[] = event.htmlAttributes['data-qualities'].split('|')
 
   getAttrs([attr], (v) => {
-    startSkillRoll(skillname, v[attr], qualities)
+    startSkillRoll(skillname, parseInt(v[attr]) || 1, qualities)
   })
 })
