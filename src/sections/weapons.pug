@@ -1,19 +1,40 @@
 +section("Weapons")
   fieldset.repeating_weapons
-    //- TODO: have a toggle between edit and display modes
-    //- Display modes should pull everything onto a single line
-    //- TODO: dice rollers
-    .columns
-      .column
-        +textfield_v("attr_weapon_name", "Name")
-    .columns
-      .column
-        +numberfield_v("attr_weapon_range", "Range/Reach")
-      .column
-        +numberfield_v("attr_weapon_acc", "Acc")
+    input(type="hidden" name="attr_locked")
+    .section-unlocked
+      .columns
+        .column
+          +textfield_v("attr_weapon_name", "Name")
+      .columns
+        .column
+          +numberfield_v("attr_weapon_range", "Range/Reach")
+        .column
+          +numberfield_v("attr_weapon_acc", "Acc")
+            button.button.eos-roll(type="action" name="act_weapon")
+        .column
+          +numberfield_v("attr_weapon_ap", "AP")
+      .columns
+        .column
+          +textfield_v("attr_weapon_special", "Special")
+    .section-locked
+      .columns
+        .column
+          span(name="attr_weapon_name")
+          |
+          | (Range/Reach
+          |
+          span(name="attr_weapon_range")
+          |
+          | Acc
+          |
+          span(name="attr_weapon_acc")
+          |
+          | AP
+          |
+          span(name="attr_weapon_ap")
+          | )
+          br
+          span(name="attr_weapon_special")
+        .column.is-narrow
           button.button.eos-roll(type="action" name="act_weapon")
-      .column
-        +numberfield_v("attr_weapon_ap", "AP")
-    .columns
-      .column
-        +textfield_v("attr_weapon_special", "Special")
+    input(type="checkbox" name="attr_locked")

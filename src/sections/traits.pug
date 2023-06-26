@@ -1,12 +1,20 @@
 +section("Traits")
   fieldset.repeating_traits
-    //- TODO: have a toggle between edit and display modes
-    //- Display modes should pull everything onto a single line
-    .columns
-      .column
-        +textfield_v("attr_trait_name", "Name")
-      .column.is-narrow
-        button.button.eos-announce(type="roll" value="&{template:announce} {{name=@{trait_name}}} {{text=@{trait_desc}}}")
-    .columns
-      .column
-        +textarea("attr_trait_desc", "Description")
+    input(type="hidden" name="attr_locked")
+    .section-unlocked
+      .columns
+        .column
+          +textfield_v("attr_trait_name", "Name")
+        .column.is-narrow
+          button.button.eos-announce(type="roll" value="&{template:announce} {{name=@{trait_name}}} {{text=@{trait_desc}}}")
+      .columns
+        .column
+          +textarea("attr_trait_desc", "Description")
+      .columns
+        .column
+          input(type="checkbox" name="attr_locked")
+    .section-locked
+      span.is-3(name="attr_trait_name")
+      p
+        span(name="attr_trait_desc")
+      input(type="checkbox" name="attr_locked")

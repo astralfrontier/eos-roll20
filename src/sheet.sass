@@ -62,3 +62,9 @@ $size-7: 1rem
     font-family: "Pictos"
     font-size: $size-4
     content: ")"
+
+// Toggles and visibility guards
+
+input[name="attr_locked"]:not([value="on"]) ~ .section-locked,
+input[name="attr_locked"][value="on"] ~ .section-unlocked
+  display: none !important
