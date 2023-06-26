@@ -1,9 +1,11 @@
 mixin skill_roller(attr, qualities)
   if qualities.length == 1
-    button.button(type="roll" value=`/roll @{${attr}}d@{quality_${qualities[0].toLowerCase()}}`)
+    //- button.button(type="roll" value=`/roll @{${attr}}d@{quality_${qualities[0].toLowerCase()}}`)
+    button.button(type="action" name="act_skill" data-skillname=attr data-qualities=`@{quality_${qualities[0].toLowerCase()}}`)
   else
     - var qualities_s = qualities.map(q => `${q},@{quality_${qualities[0].toLowerCase()}}`).join('|')
-    button.button(type="roll" value=`/roll @{${attr}}d?{Quality?|${qualities_s}}`)
+    button.button(type="action" name="act_skill" data-skillname=attr data-qualities=`?{Quality|${qualities_s}}`)
+    //- button.button(type="roll" value=`/roll @{${attr}}d?{Quality?|${qualities_s}}`)
 
 +section("Skills")
   - var splitpoint = Math.ceil(skills.length / 2);

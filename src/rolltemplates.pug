@@ -1,0 +1,15 @@
+mixin outcome(label, text)
+  p
+    span.sheet-rolltemplate-outcome-label= label
+    span.sheet-rolltemplate-outcome-text= text
+
+rolltemplate.sheet-rolltemplate-check
+  .sheet-rolltemplate-header
+    h3= "{{name}}"
+  .sheet-rolltemplate-outcome
+    +outcome("Roll", "{{computed::roll}}")
+    +outcome("Result", "{{computed::result}}")
+    != "{{#allprops() name text roll result}}"
+    +outcome('{{key}}', '{{value}}')
+    != "{{/allprops() name text roll result}}"
+    p= "{{text}}"
