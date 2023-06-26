@@ -16,6 +16,10 @@
   @import "../node_modules/bulma/sass/helpers/_all"
   @import "../node_modules/bulma/sass/layout/_all"
 
+  // There's a conflict between Bulma's "container" and Roll20's "container"
+  .container
+    background-color: white
+
   // Negate "position: relative" to make repeating sections work
   .control, .select select, .input
     position: inherit !important
